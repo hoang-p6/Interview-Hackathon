@@ -1,8 +1,9 @@
 <template>
-  <NavBar />
-  <div>
+  <header><NavBar /></header>
+
+  <main>
     <HomePage />
-  </div>
+  </main>
 </template>
 
 <script>
