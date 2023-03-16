@@ -1,10 +1,10 @@
 <template>
-  <Student />
+  <StudentCard />
 </template>
 <script>
-import Student from './Student.vue'
+import StudentCard from './StudentCard.vue'
 export default {
   name: 'HomePage',
-  components: { Student }
+  components: { StudentCard }
 }
 </script>
