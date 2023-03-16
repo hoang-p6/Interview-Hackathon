@@ -1,16 +1,16 @@
 <template>
+  <NavBar />
   <div>
-    <Home />
+    <HomePage />
   </div>
 </template>
 
 <script>
-// eslint-disable-next-line
-import Home from './components/Home.vue'
+import HomePage from './components/HomePage.vue'
+import NavBar from './components/NavBar.vue'
 export default {
   name: 'App',
-
-  components: { Home }
+  components: { HomePage, NavBar }
 }
 </script>
 
