@@ -1,19 +1,40 @@
 <template>
   <form @submit="addCourse">
-    <input :v-model="text" placeholder="Course Name " />
-    <input :v-model="text" placeholder="Grade " />
+    <input
+      @input="handleChange"
+      placeholder="Course Name "
+      :value="newCourse.name"
+      name="name"
+    />
+    <input
+      @input="handleChange"
+      placeholder="Course Code "
+      :value="newCourse.code"
+      name="code"
+    />
   </form>
-  <button type="submit">Add Course</button>
+  <button @click="addCourse" type="submit">Add Course</button>
 </template>
 <script>
-import axios from 'axios'
+// import axios from "axios";
 export default {
-  name: 'CourseForm',
-  data: () => {},
+  name: "CourseForm",
+  data: () => ({
+    newCourse: {
+      name: "",
+      code: "",
+    },
+  }),
   methods: {
     async addCourse() {
-      await axios.post()
-    }
-  }
-}
+      // await axios.post();
+      console.log(this.newCourse);
+    },
+    handleChange(event) {
+      console.log(event);
+      this.newCourse[event.target.name] = event.target.value;
+      console.log(this.newCourse);
+    },
+  },
+};
 </script>
