@@ -1,21 +1,20 @@
 <template>
+  <h1>Students</h1>
   <div v-for="student in students" :key="student">
-    <div>Students Name</div>
+    <div>{{ student.name }}</div>
     <div>Email</div>
     <div>Id</div>
     <div>Courses</div>
     <div>Grade</div>
   </div>
-  <router-view></router-view>
-  <router-link to="/addstudent">Add Student</router-link>
 </template>
 <script>
 // import axios from 'axios'
 export default {
   // eslint-disable-next-line
-  name: 'Student',
+  name: 'StudentCard',
   data: () => ({
-    students: []
+    students: [{ name: 'Doug' }, { name: 'Mat' }]
   }),
   methods: {
     // async getAllStudents() {
