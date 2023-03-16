@@ -1,14 +1,16 @@
 <template>
   <div>
-    <StudentForm />
+    <Home />
   </div>
 </template>
 
 <script>
-import StudentForm from './components/StudentForm.vue'
+// eslint-disable-next-line
+import Home from './components/Home.vue'
 export default {
   name: 'App',
-  components: { StudentForm }
+
+  components: { Home }
 }
 </script>
 
