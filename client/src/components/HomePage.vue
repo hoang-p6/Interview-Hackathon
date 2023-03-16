@@ -14,7 +14,7 @@
 // import axios from "axios";
 // import StudentCard from "./StudentCard.vue";
 export default {
-  name: "HomePage",
-  components: {},
-};
+  name: 'HomePage',
+  components: {}
+}
 </script>

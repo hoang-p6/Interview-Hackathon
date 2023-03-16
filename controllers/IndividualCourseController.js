@@ -1,4 +1,4 @@
-const { IndividualCourse } = require("../../models")
+const { IndividualCourse } = require('../models')
 
 const findAll = async (req, res) => {
   try {
@@ -27,7 +27,7 @@ const findAllCoursesByStudentId = async (req, res) => {
   try {
     const studentId = +req.params.id
     const courses = await IndividualCourse.findAll({
-      where: { studentId: studentId },
+      where: { studentId: studentId }
     })
     res.send(courses)
   } catch (err) {
@@ -40,7 +40,7 @@ const editIndividualCourseGrade = async (req, res) => {
     const { studentId, courseId } = req.body
     const updatedIndividualCourse = await IndividualCourse.update(req.body, {
       where: { studentId: +studentId, courseId: +courseId },
-      returning: true,
+      returning: true
     })
     res.send(updatedIndividualCourse)
   } catch (err) {
@@ -52,5 +52,5 @@ module.exports = {
   findAll,
   assignStudentToCourse,
   findAllCoursesByStudentId,
-  editIndividualCourseGrade,
+  editIndividualCourseGrade
 }
