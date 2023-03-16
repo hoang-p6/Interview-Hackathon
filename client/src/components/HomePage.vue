@@ -5,7 +5,7 @@
       <button @click="$router.push('/courses')">Courses</button>
       <button @click="$router.push('/students')">Students</button>
       <button @click="$router.push('/students/form')">Add Student</button>
-      <button @click="$router.push('/courses/form')">Add Form</button>
+      <button @click="$router.push('/courses/form')">Add Course</button>
     </div>
     <!-- <StudentCard /> -->
   </div>

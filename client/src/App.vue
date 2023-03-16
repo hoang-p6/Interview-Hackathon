@@ -1,8 +1,12 @@
 <template>
-  <NavBar />
-  <div>
+  <div id="app">
+    <header>
+      <NavBar />
+    </header>
     <!-- <HomePage /> -->
-    <router-view header="all"></router-view>
+    <main>
+      <router-view header="all"></router-view>
+    </main>
   </div>
 </template>
 

@@ -1,0 +1,11 @@
+header {
+  background-color: #212121;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3em;
+}
+
+header nav a {
+  margin: 0 1em;
+}
