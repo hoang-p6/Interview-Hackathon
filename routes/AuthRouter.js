@@ -1,14 +1,14 @@
-const router = require("express").Router()
+const Router = require("express").Router()
 const controller = require("../controllers/AuthController")
 const middleware = require("../middleware")
 
-router.post("/login", controller.Login)
-router.post("/register", controller.Register)
-router.get(
+Router.post("/login", controller.Login)
+Router.post("/register", controller.Register)
+Router.get(
   "/session",
-  middleware.stripToken,
-  middleware.verifyToken,
+  // middleware.stripToken,
+  // middleware.verifyToken,
   controller.CheckSession
 )
 
-module.exports = router
+module.exports = Router

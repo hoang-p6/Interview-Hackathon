@@ -1,6 +1,8 @@
-const router = require("express").Router()
+const Router = require("express").Router()
 const controller = require("../controllers/IndividualCourseController")
 
-router.get("/", controller.findAll)
-router.get("/:id", controller.findAllCoursesByStudentId)
-router.post("/assign", controller.assignStudentToCourse)
+Router.get("/", controller.findAll)
+Router.get("/:id", controller.findAllCoursesByStudentId)
+Router.post("/assign", controller.assignStudentToCourse)
+
+module.exports = Router
