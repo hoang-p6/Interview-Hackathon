@@ -1,11 +1,15 @@
 <template>
-  <h1>Students</h1>
-  <div v-for="student in students" :key="student">
-    <div>{{ student.name }}</div>
-    <div>Email</div>
-    <div>Id</div>
-    <div>Courses</div>
-    <div>Grade</div>
+  <div>
+    <div>
+      <h3>Hector Flores</h3>
+      <h3>GPA: 3</h3>
+      <h4>hmflores88@student.edu</h4>
+    </div>
+    <h2>Courses:</h2>
+    <div>
+      <p>AWE 111</p>
+      <p>Grade: A</p>
+    </div>
   </div>
 </template>
 <script>

@@ -7,14 +7,14 @@
       <button @click="$router.push('/students/form')">Add Student</button>
       <button @click="$router.push('/courses/form')">Add Course</button>
     </div>
-    <StudentCard />
+    <!-- <StudentCard /> -->
   </div>
 </template>
 <script>
 // import axios from "axios";
-import StudentCard from './StudentCard.vue'
+// import StudentCard from "./StudentCard.vue";
 export default {
   name: 'HomePage',
-  components: { StudentCard }
+  components: {}
 }
 </script>
