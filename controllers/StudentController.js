@@ -37,12 +37,12 @@ const findStudentById = async (req, res) => {
 
 const createStudent = async (req, res) => {
   console.log(req.body)
-  if (
-    req.body.firstName.length !== undefined &&
-    req.body.lastName !== undefined &&
-    req.body.email !== undefined
-  ) {
-  }
+  // if (
+  //   req.body.firstName.length !== undefined &&
+  //   req.body.lastName !== undefined &&
+  //   req.body.email !== undefined
+  // ) {
+  // }
   try {
     const { firstName: firstName, lastName: lastName, email } = req.body
     const student = await Student.create({
