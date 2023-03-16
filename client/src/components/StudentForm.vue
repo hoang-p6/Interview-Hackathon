@@ -21,7 +21,7 @@
       name="email"
       @input="handleChange"
     />
-    <input
+    <!-- <input
       :v-model="text"
       placeholder="Course"
       :value="courses"
@@ -34,7 +34,7 @@
       :value="grade"
       name="grade"
       @input="handleChange"
-    />
+    /> -->
   </form>
   <button type="submit" @click="addStudent">Add</button>
 </template>
@@ -46,9 +46,9 @@ export default {
     newStudent: {
       firstName: '',
       lastName: '',
-      email: '',
-      course: '',
-      grade: ''
+      email: ''
+      // course: '',
+      // grade: ''
     },
     student: ''
   }),
