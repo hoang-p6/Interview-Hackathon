@@ -1,11 +1,16 @@
 <template>
-  <div></div>
+  <div>
+    <Home />
+  </div>
 </template>
 
 <script>
+// eslint-disable-next-line
+import Home from './components/Home.vue'
 export default {
   name: 'App',
-  components: {}
+
+  components: { Home }
 }
 </script>
 
