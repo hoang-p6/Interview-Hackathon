@@ -8,7 +8,7 @@ export default {
   // eslint-disable-next-line
   name: 'Student',
   data: () => {
-    // student: []
+    // students: []
   },
   methods: {
     // async getAllStudents() {
