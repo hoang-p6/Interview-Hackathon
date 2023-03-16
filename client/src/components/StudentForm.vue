@@ -9,14 +9,14 @@
   <button type="submit">Add</button>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
-  name: 'StudentForm',
+  name: "StudentForm",
   data: () => {},
   methods: {
     async addStudent() {
-      await axios.post()
-    }
-  }
-}
+      await axios.post();
+    },
+  },
+};
 </script>
