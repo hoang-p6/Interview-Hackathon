@@ -1,33 +1,46 @@
 <template>
   <div>
-    <div>
-      <h3>Hector Flores</h3>
-      <h3>GPA: 3</h3>
-      <h4>hmflores88@student.edu</h4>
-    </div>
-    <h2>Courses:</h2>
-    <div>
-      <p>AWE 111</p>
-      <p>Grade: A</p>
+    <div v-if="selectedStudent"></div>
+
+    <div v-else v-for="student in students" :key="student.id">
+      <div @click="getStudentById(student.id)">
+        {{ student.firstName }}
+        {{ student.lastName }}
+      </div>
     </div>
   </div>
+  <button @click="$router.push('/students/form')">Add Student</button>
 </template>
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 export default {
   // eslint-disable-next-line
   name: 'StudentCard',
   data: () => ({
-    students: [{ name: 'Doug' }, { name: 'Mat' }]
+    students: [],
+    student: '',
+    allStudents: false,
+    selectedStudent: false
   }),
+  mounted() {
+    this.getAllStudents
+  },
   methods: {
-    // async getAllStudents() {
-    //   const response = await axios.get()
-    //   this.student = response
-    // },
-    // async getStudentById() {
-    //   const response = await axios.get()
-    // }
+    async getAllStudents() {
+      this.allStudents = true
+      this.selectedStudent = false
+      const response = await axios.get(`http://localhost:3001/api/students/`)
+      this.student = response
+      console.log(response)
+    },
+    async getStudentById(studentId) {
+      this.allStudents = false
+      this.selectedStudent = true
+      const response = await axios.get(
+        `http://localhost:3001/api/students/${studentId}`
+      )
+      console.log(response)
+    }
   }
 }
 </script>

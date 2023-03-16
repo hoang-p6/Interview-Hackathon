@@ -1,4 +1,4 @@
-const { Course, Student } = require("../models")
+const { Course, Student } = require('../models')
 
 const findAllStudents = async (req, res) => {
   try {
@@ -6,10 +6,10 @@ const findAllStudents = async (req, res) => {
       include: [
         {
           model: Course,
-          as: "courses",
-          through: { attributes: ["grade"] },
-        },
-      ],
+          as: 'courses',
+          through: { attributes: ['grade'] }
+        }
+      ]
     })
     res.send(students)
   } catch (err) {
@@ -24,10 +24,10 @@ const findStudentById = async (req, res) => {
       include: [
         {
           model: Course,
-          as: "courses",
-          through: { attributes: ["grade"] },
-        },
-      ],
+          as: 'courses',
+          through: { attributes: ['grade'] }
+        }
+      ]
     })
     res.send(student)
   } catch (err) {
@@ -36,16 +36,23 @@ const findStudentById = async (req, res) => {
 }
 
 const createStudent = async (req, res) => {
+  console.log(req.body)
+  if (
+    req.body.firstName.length !== undefined &&
+    req.body.lastName !== undefined &&
+    req.body.email !== undefined
+  ) {
+  }
   try {
     const { firstName: firstName, lastName: lastName, email } = req.body
     const student = await Student.create({
       firstName,
       lastName,
-      email,
+      email
     })
     return res.status(200).send({
       msg: `Student was created`,
-      payload: student,
+      payload: student
     })
   } catch (err) {
     throw err
@@ -55,5 +62,5 @@ const createStudent = async (req, res) => {
 module.exports = {
   findAllStudents,
   findStudentById,
-  createStudent,
+  createStudent
 }

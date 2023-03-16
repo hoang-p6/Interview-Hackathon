@@ -6,6 +6,7 @@
       <p>ACP 111</p>
     </div>
   </div>
+  <button @click="$router.push('/courses/form')">Add Course</button>
 </template>
 <script>
 // import axios from 'axios'
@@ -17,11 +18,11 @@ export default {
   components: {},
   methods: {
     // async getAllCourses() {
-    //   const response = await axios.get()
+    //   const response = await axios.get(`http://localhost:3000/courses/`)
     //   this.courses = response
     // },
     // async getCourseById() {
-    //   const response = await axios.get()
+    //   const response = await axios.get(`http://localhost:3000/courses/`)
     // }
   }
 }
