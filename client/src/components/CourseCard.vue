@@ -1,12 +1,12 @@
 <template>
-  <h1>Courses</h1>
-  <div class="background">
-    <div class="main">
-      <!-- <div>
+  <div class="main">
+    <h1>Courses</h1>
+    <!-- <div>
       {{ this.course.name }}
       {{ this.course.code }}
     </div> -->
 
+    <div class="class-container" id="background">
       <div
         class="card"
         v-for="course in courses"
@@ -14,14 +14,16 @@
         @click="$router.push(`/courses/${course.id}`)"
       >
         <h2>{{ course.name }}</h2>
-
-        <h3>Course Code: {{ course.code }}</h3>
+        <h3>{{ course.code }}</h3>
       </div>
-      <button class="button" @click="selectedCourse = false">Back</button>
-      <button class="button" @click="$router.push('/courses/form')">
+    </div>
+    <div class="class-container">
+      <button class="course-button" @click="selectedCourse = false">
+        Back
+      </button>
+      <button class="course-button" @click="$router.push('/courses/form')">
         Add Course
       </button>
-
     </div>
   </div>
 </template>
@@ -95,7 +97,6 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  flex-wrap: wrap;
   background-color: rgb(10, 36, 114);
   width: 80%;
   height: 250px;
@@ -110,18 +111,24 @@ export default {
   color: rgb(3, 83, 164);
 }
 
-.button {
+.course-button {
   background-color: rgb(4, 102, 200);
   color: aliceblue;
   width: 20%;
   height: 50px;
   margin-bottom: 10px;
   border-radius: 10px;
-  border-style: solid;
-  border-color: 2px #979dac;
+  border-style: none;
   font-size: 1em;
 }
 .button:hover {
   background-color: rgb(3, 83, 164);
+}
+#background {
+  background-color: #002855;
+  border: 2px solid #979dac;
+  height: 100vh;
+  width: 98.2vw;
+  border-radius: 30px;
 }
 </style>
