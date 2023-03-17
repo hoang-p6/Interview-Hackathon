@@ -18,19 +18,20 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap%27');
 html {
-  background-color: #dad7cd;
+  background-color: #001233;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 .header {
-  background-color: #344e41;
-  font-size: 55px;
+  font-size: 40px;
 }
 a {
   text-decoration: none;
-  color: #a3b18a;
+  color: #979dac;
 }
 button {
-  background-color: #588157;
+  background-color: #4f6d7a;
   color: #a3b18a;
 }
 </style>
