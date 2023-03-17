@@ -56,82 +56,82 @@
   </button>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
   // eslint-disable-next-line
-  name: "StudentCard",
+  name: 'StudentCard',
   data: () => ({
     students: [],
-    student: "",
-    courses: "",
+    student: '',
+    courses: '',
     assignCourse: false,
     allStudents: false,
     selectedStudent: false,
     courseAssignment: {
-      courseId: "",
-      studentId: "",
-      grade: "",
+      courseId: '',
+      studentId: '',
+      grade: ''
     },
-    courseById: "",
-    formOn: false,
+    courseById: '',
+    formOn: false
   }),
   mounted() {
-    this.getAllStudents();
+    this.getAllStudents()
   },
   methods: {
     async getAllStudents() {
-      this.allStudents = true;
-      this.selectedStudent = false;
-      const response = await axios.get(`http://localhost:3001/api/students/`);
-      this.students = response.data;
-      console.log(this.students);
+      this.allStudents = true
+      this.selectedStudent = false
+      const response = await axios.get(`http://localhost:3001/api/students/`)
+      this.students = response.data
+      console.log(this.students)
     },
     async getStudentById(studentId) {
-      this.allStudents = false;
-      this.selectedStudent = true;
+      this.allStudents = false
+      this.selectedStudent = true
       const response = await axios.get(
         `http://localhost:3001/api/students/${studentId}`
-      );
-      this.student = response.data;
-      this.courses = response.data.courses[0];
-      console.log(this.courses);
+      )
+      this.student = response.data
+      this.courses = response.data.courses[0]
+      console.log(this.courses)
     },
     async getAllCourses() {
-      this.assignCourse = true;
-      const response = await axios.get(`http://localhost:3001/api/courses/`);
-      this.courses = response.data;
-      console.log(this.courses);
+      this.assignCourse = true
+      const response = await axios.get(`http://localhost:3001/api/courses/`)
+      this.courses = response.data
+      console.log(this.courses)
     },
     handleChange() {
-      this.courseAssignment[event.target.name] = event.target.value;
-      console.log(this.courseAssignment.grade);
+      this.courseAssignment[event.target.name] = event.target.value
+      console.log(this.courseAssignment.grade)
     },
     async getCourseById(courseId) {
-      this.formOn = true;
+      this.formOn = true
       const response = await axios.get(
         `http://localhost:3001/api/courses/${courseId}`
-      );
-      this.courseById = response.data;
-      console.log(response.data);
+      )
+      this.courseById = response.data
+      console.log(response.data)
     },
     async assignStudentToCourse(courseId) {
-      this.courseAssignment.courseId = courseId;
-      this.courseAssignment.studentId = this.student.id;
-      console.log(this.courseAssignment);
+      this.courseAssignment.courseId = courseId
+      this.courseAssignment.studentId = this.student.id
+      console.log(this.courseAssignment)
       const response = await axios.post(
         `http://localhost:3001/api/individuals/assign`,
         this.courseAssignment
-      );
-      console.log(response);
-    },
-  },
-};
+      )
+      console.log(response)
+    }
+  }
+}
 </script>
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap%27");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap%27');
 
 .main {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: aliceblue;
   display: flex;
   align-items: center;
@@ -140,7 +140,7 @@ export default {
 }
 
 .card {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: aliceblue;
   display: flex;
   align-items: center;

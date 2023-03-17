@@ -5,7 +5,8 @@
       {{ this.course.name }}
       {{ this.course.code }}
     </div> -->
-    <div class="class-container">
+
+    <div class="class-container" id="background">
       <div
         class="card"
         v-for="course in courses"
@@ -16,59 +17,65 @@
         <h3>{{ course.code }}</h3>
       </div>
     </div>
-    <button class="button" @click="$router.push('/')">Back</button>
-    <button class="button" @click="$router.push('/courses/form')">
-      Add Course
-    </button>
+
+    <div class="class-container">
+      <button class="course-button" @click="selectedCourse = false">
+        Back
+      </button>
+      <button class="course-button" @click="$router.push('/courses/form')">
+        Add Course
+      </button>
+    </div>
+
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
-  name: "HomePage",
+  name: 'HomePage',
   data: () => ({
-    courses: "",
-    course: "",
+    courses: '',
+    course: '',
     allCourses: false,
     selectedCourse: false,
 
     assignedCourse: {
-      courseId: "",
-      studentId: "",
-      grade: "",
-    },
+      courseId: '',
+      studentId: '',
+      grade: ''
+    }
   }),
   components: {},
   mounted() {
-    this.getAllCourses();
+    this.getAllCourses()
   },
   methods: {
     async getAllCourses() {
-      this.allCourses = true;
-      this.selectedCourse = false;
-      const response = await axios.get(`http://localhost:3001/api/courses/`);
-      this.courses = response.data;
+      this.allCourses = true
+      this.selectedCourse = false
+      const response = await axios.get(`http://localhost:3001/api/courses/`)
+      this.courses = response.data
 
-      console.log(this.courses);
+      console.log(this.courses)
     },
     async getCourseById(courseId) {
-      this.allCourses = false;
-      this.selectedCourse = true;
+      this.allCourses = false
+      this.selectedCourse = true
       const response = await axios.get(
         `http://localhost:3001/api/courses/${courseId}`
-      );
-      this.course = response.data;
-      console.log(response.data);
-    },
-  },
-};
+      )
+      this.course = response.data
+      console.log(response.data)
+    }
+  }
+}
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap%27");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap%27');
 
 .main {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: aliceblue;
   display: flex;
   align-items: center;
@@ -86,7 +93,7 @@ export default {
 }
 
 .card {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: aliceblue;
   display: flex;
   align-items: center;
@@ -106,7 +113,7 @@ export default {
   color: rgb(3, 83, 164);
 }
 
-.button {
+.course-button {
   background-color: rgb(4, 102, 200);
   color: aliceblue;
   width: 20%;
@@ -118,5 +125,12 @@ export default {
 }
 .button:hover {
   background-color: rgb(3, 83, 164);
+}
+#background {
+  background-color: #002855;
+  border: 2px solid #979dac;
+  height: 100vh;
+  width: 98.2vw;
+  border-radius: 30px;
 }
 </style>

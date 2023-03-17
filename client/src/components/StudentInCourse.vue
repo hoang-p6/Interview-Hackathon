@@ -6,7 +6,7 @@
       class="student-card"
       v-for="student in students"
       :key="student.id"
-      @click="$router.push('/courses/grades')"
+      @click="$router.push('/students')"
     >
       <h3>{{ student.firstName }} {{ student.lastName }}</h3>
       <h3>Email:</h3>
@@ -18,36 +18,36 @@
   <!-- <button @click="$router.push('/courses/form')">Add Course</button> -->
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
-  name: "HomePage",
+  name: 'HomePage',
   data: () => ({
-    students: [],
+    students: []
   }),
   components: {},
   mounted() {
-    this.courseId = this.$route.params.id;
-    this.getAllStudents(this.courseId);
+    this.courseId = this.$route.params.id
+    this.getAllStudents(this.courseId)
   },
   methods: {
     async getAllStudents(courseId) {
-      const response = await axios.get(`http://localhost:3001/api/students`);
-      console.log(response.data);
-      console.log(courseId);
+      const response = await axios.get(`http://localhost:3001/api/students`)
+      console.log(response.data)
+      console.log(courseId)
       this.students = response.data.filter((student) => {
-        return student.courses.some((course) => course.id == courseId);
-      });
-      console.log(this.students);
-    },
-  },
-};
+        return student.courses.some((course) => course.id == courseId)
+      })
+      console.log(this.students)
+    }
+  }
+}
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap%27");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap%27');
 
 .main {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: aliceblue;
   display: flex;
   align-items: center;
@@ -56,7 +56,7 @@ export default {
 }
 
 .card {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: aliceblue;
   display: flex;
   align-items: center;
