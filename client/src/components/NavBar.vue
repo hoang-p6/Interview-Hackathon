@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="nav">
     <router-link to="/">Home</router-link>
     <router-link to="/courses">Courses</router-link>
     <router-link to="/students">Students</router-link>
@@ -9,9 +9,12 @@
 <script>
 // import StudentForm from './StudentForm.vue'
 export default {
-  name: "NavBar",
-  components: {},
-};
+  name: 'NavBar',
+  components: {}
+}
 </script>
 
-<style scoped></style>
+<style scoped>
+.nav {
+}
+</style>

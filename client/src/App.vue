@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <header>
+    <header class="header">
       <NavBar />
     </header>
-    <!-- <HomePage /> -->
     <main>
       <router-view header="all"></router-view>
     </main>
@@ -11,7 +10,6 @@
 </template>
 
 <script>
-// import HomePage from "./components/HomePage.vue";
 import NavBar from './components/NavBar.vue'
 export default {
   name: 'App',
@@ -20,6 +18,19 @@ export default {
 </script>
 
 <style>
-#app {
+html {
+  background-color: #dad7cd;
+}
+.header {
+  background-color: #344e41;
+  font-size: 55px;
+}
+a {
+  text-decoration: none;
+  color: #a3b18a;
+}
+button {
+  background-color: #588157;
+  color: #a3b18a;
 }
 </style>
