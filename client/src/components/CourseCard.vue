@@ -14,6 +14,7 @@
       <div>{{ course.code }}</div>
     </div>
   </div>
+  <button @click="selectedCourse = false">Back</button>
   <button @click="$router.push('/courses/form')">Add Course</button>
 </template>
 <script>
@@ -25,6 +26,13 @@ export default {
     course: "",
     allCourses: false,
     selectedCourse: false,
+
+    assignedCourse: {
+      courseId: '',
+      studentId: '',
+      grade: ''
+    }
+
   }),
   components: {},
   mounted() {
