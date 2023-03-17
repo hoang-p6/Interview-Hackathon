@@ -1,15 +1,14 @@
 <template>
   <div>
     <h1>Courses</h1>
-    <div v-if="selectedCourse">
+    <!-- <div>
       {{ this.course.name }}
       {{ this.course.code }}
-    </div>
+    </div> -->
     <div
-      v-else
       v-for="course in courses"
       :key="course.id"
-      @click="getCourseById(course.id)"
+      @click="$router.push(`/courses/${course.id}`)"
     >
       <div>{{ course.name }}</div>
       <div>{{ course.code }}</div>
@@ -19,42 +18,44 @@
   <button @click="$router.push('/courses/form')">Add Course</button>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
-  name: 'HomePage',
+  name: "HomePage",
   data: () => ({
-    courses: '',
-    course: '',
+    courses: "",
+    course: "",
     allCourses: false,
     selectedCourse: false,
+
     assignedCourse: {
       courseId: '',
       studentId: '',
       grade: ''
     }
+
   }),
   components: {},
   mounted() {
-    this.getAllCourses()
+    this.getAllCourses();
   },
   methods: {
     async getAllCourses() {
-      this.allCourses = true
-      this.selectedCourse = false
-      const response = await axios.get(`http://localhost:3001/api/courses/`)
-      this.courses = response.data
+      this.allCourses = true;
+      this.selectedCourse = false;
+      const response = await axios.get(`http://localhost:3001/api/courses/`);
+      this.courses = response.data;
 
-      console.log(this.courses)
+      console.log(this.courses);
     },
     async getCourseById(courseId) {
-      this.allCourses = false
-      this.selectedCourse = true
+      this.allCourses = false;
+      this.selectedCourse = true;
       const response = await axios.get(
         `http://localhost:3001/api/courses/${courseId}`
-      )
-      this.course = response.data
-      console.log(response.data)
-    }
-  }
-}
+      );
+      this.course = response.data;
+      console.log(response.data);
+    },
+  },
+};
 </script>
