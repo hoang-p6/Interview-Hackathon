@@ -1,13 +1,12 @@
-"use strict"
-const { Model } = require("sequelize")
+'use strict'
+const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-
   class Student extends Model {
     static associate(models) {
       Student.belongsToMany(models.Course, {
         through: models.IndividualCourse,
-        as: "courses",
-        foreignKey: "studentId",
+        as: 'courses',
+        foreignKey: 'studentId'
       })
     }
   }
@@ -16,25 +15,25 @@ module.exports = (sequelize, DataTypes) => {
     {
       firstName: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       lastName: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
         validate: {
-          isEmail: true,
-        },
-      },
+          isEmail: true
+        }
+      }
     },
     {
       sequelize,
-      modelName: "Student",
-      tableName: "students",
+      modelName: 'Student',
+      tableName: 'students'
     }
   )
   return Student

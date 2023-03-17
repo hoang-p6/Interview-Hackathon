@@ -16,25 +16,30 @@
   <button @click="addCourse" type="submit">Add Course</button>
 </template>
 <script>
-// import axios from "axios";
+import axios from 'axios'
 export default {
-  name: "CourseForm",
+  name: 'CourseForm',
   data: () => ({
     newCourse: {
-      name: "",
-      code: "",
+      name: '',
+      code: ''
     },
+    course: ''
   }),
   methods: {
     async addCourse() {
-      // await axios.post();
-      console.log(this.newCourse);
+      const response = await axios.post(
+        'http://localhost:3001/api/courses/create',
+        this.newCourse
+      )
+      this.course = response
+      console.log(this.course)
     },
     handleChange(event) {
-      console.log(event);
-      this.newCourse[event.target.name] = event.target.value;
-      console.log(this.newCourse);
-    },
-  },
-};
+      console.log(event)
+      this.newCourse[event.target.name] = event.target.value
+      console.log(this.newCourse)
+    }
+  }
+}
 </script>

@@ -1,7 +1,6 @@
-"use strict"
-const { Model } = require("sequelize")
+'use strict'
+const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-
   class IndividualCourse extends Model {
     static associate(models) {}
   }
@@ -12,27 +11,27 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: "students",
-          key: "id",
-        },
+          model: 'students',
+          key: 'id'
+        }
       },
       courseId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: "courses",
-          key: "id",
-        },
+          model: 'courses',
+          key: 'id'
+        }
       },
       grade: {
         type: DataTypes.REAL,
-        allowNull: true,
-      },
+        allowNull: true
+      }
     },
     {
       sequelize,
-      modelName: "IndividualCourse",
-      tableName: "individualCourse",
+      modelName: 'IndividualCourse',
+      tableName: 'individualCourses'
     }
   )
   return IndividualCourse
