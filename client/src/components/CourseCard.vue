@@ -5,14 +5,16 @@
       {{ this.course.name }}
       {{ this.course.code }}
     </div> -->
-    <div
-      class="card"
-      v-for="course in courses"
-      :key="course.id"
-      @click="$router.push(`/courses/${course.id}`)"
-    >
-      <h2>{{ course.name }}</h2>
-      <h3>{{ course.code }}</h3>
+    <div class="class-container">
+      <div
+        class="card"
+        v-for="course in courses"
+        :key="course.id"
+        @click="$router.push(`/courses/${course.id}`)"
+      >
+        <h2>{{ course.name }}</h2>
+        <h3>{{ course.code }}</h3>
+      </div>
     </div>
     <button class="button" @click="selectedCourse = false">Back</button>
     <button class="button" @click="$router.push('/courses/form')">
@@ -74,6 +76,13 @@ export default {
   flex-direction: column;
 }
 
+.class-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
   font-family: "Source Sans Pro", sans-serif;
   color: aliceblue;
@@ -82,12 +91,14 @@ export default {
   justify-content: center;
   flex-direction: column;
   background-color: rgb(10, 36, 114);
-  width: 20%;
-  height: 40%;
-  margin-bottom: 10px;
+  width: 80%;
+  height: 250px;
+  margin: 10px;
   border-radius: 15px;
+  padding: 20px;
+  font-size: 1.2em;
 }
-:hover.card {
+.card:hover {
   border-style: solid;
   /* background-color: rgba(10, 36, 114, 0.591); */
   color: rgb(3, 83, 164);
@@ -103,7 +114,7 @@ export default {
   border-style: none;
   font-size: 1em;
 }
-:hover.button {
+.button:hover {
   background-color: rgb(3, 83, 164);
 }
 </style>
