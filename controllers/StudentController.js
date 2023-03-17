@@ -44,7 +44,7 @@ const createStudent = async (req, res) => {
   // ) {
   // }
   try {
-    const { firstName: firstName, lastName: lastName, email } = req.body
+    const { firstName: firstName, lastName: lastName, email: email } = req.body
     const student = await Student.create({
       firstName,
       lastName,

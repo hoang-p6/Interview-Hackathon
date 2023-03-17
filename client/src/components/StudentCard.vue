@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div v-if="selectedStudent"></div>
+    <div v-if="selectedStudent">
+      {{ this.student.firstName }}
+      {{ this.student.lastName }}
+      {{ this.student.email }}
+      {{ this.student.id }}
+    </div>
 
     <div v-else v-for="student in students" :key="student.id">
       <div @click="getStudentById(student.id)">
@@ -23,15 +28,15 @@ export default {
     selectedStudent: false
   }),
   mounted() {
-    this.getAllStudents
+    this.getAllStudents()
   },
   methods: {
     async getAllStudents() {
       this.allStudents = true
       this.selectedStudent = false
       const response = await axios.get(`http://localhost:3001/api/students/`)
-      this.student = response
-      console.log(response)
+      this.students = response.data
+      console.log(this.students)
     },
     async getStudentById(studentId) {
       this.allStudents = false
@@ -39,7 +44,8 @@ export default {
       const response = await axios.get(
         `http://localhost:3001/api/students/${studentId}`
       )
-      console.log(response)
+      this.student = response.data
+      console.log(response.data)
     }
   }
 }
