@@ -48,7 +48,7 @@ h2 {
 .background {
   background-color: #002855;
   border: 2px solid #979dac;
-  height: 47rem;
+  height: 100vh;
   border-radius: 30px;
 }
 .homeButtons {
