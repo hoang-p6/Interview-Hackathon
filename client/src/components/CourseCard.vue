@@ -1,21 +1,24 @@
 <template>
-  <div>
+  <div class="main">
     <h1>Courses</h1>
     <!-- <div>
       {{ this.course.name }}
       {{ this.course.code }}
     </div> -->
     <div
+      class="card"
       v-for="course in courses"
       :key="course.id"
       @click="$router.push(`/courses/${course.id}`)"
     >
-      <div>{{ course.name }}</div>
-      <div>{{ course.code }}</div>
+      <h2>{{ course.name }}</h2>
+      <h3>{{ course.code }}</h3>
     </div>
+    <button class="button" @click="selectedCourse = false">Back</button>
+    <button class="button" @click="$router.push('/courses/form')">
+      Add Course
+    </button>
   </div>
-  <button @click="selectedCourse = false">Back</button>
-  <button @click="$router.push('/courses/form')">Add Course</button>
 </template>
 <script>
 import axios from "axios";
@@ -28,11 +31,10 @@ export default {
     selectedCourse: false,
 
     assignedCourse: {
-      courseId: '',
-      studentId: '',
-      grade: ''
-    }
-
+      courseId: "",
+      studentId: "",
+      grade: "",
+    },
   }),
   components: {},
   mounted() {
@@ -59,3 +61,49 @@ export default {
   },
 };
 </script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap%27");
+
+.main {
+  font-family: "Source Sans Pro", sans-serif;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card {
+  font-family: "Source Sans Pro", sans-serif;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(10, 36, 114);
+  width: 20%;
+  height: 40%;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+:hover.card {
+  border-style: solid;
+  /* background-color: rgba(10, 36, 114, 0.591); */
+  color: rgb(3, 83, 164);
+}
+
+.button {
+  background-color: rgb(4, 102, 200);
+  color: aliceblue;
+  width: 20%;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-style: none;
+  font-size: 1em;
+}
+:hover.button {
+  background-color: rgb(3, 83, 164);
+}
+</style>
