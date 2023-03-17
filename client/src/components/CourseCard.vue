@@ -17,6 +17,7 @@
         <h3>{{ course.code }}</h3>
       </div>
     </div>
+
     <div class="class-container">
       <button class="course-button" @click="selectedCourse = false">
         Back
@@ -25,6 +26,7 @@
         Add Course
       </button>
     </div>
+
   </div>
 </template>
 <script>
@@ -98,7 +100,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   background-color: rgb(10, 36, 114);
-  width: 80%;
+  width: 20%;
   height: 250px;
   margin: 10px;
   border-radius: 15px;
