@@ -1,6 +1,6 @@
-<template>
+<template class="main">
   <div>
-    <div class="card" v-if="selectedStudent">
+    <div class="card-rendered" v-if="selectedStudent">
       <h3>Student</h3>
       <div>Name: {{ this.student.firstName }} {{ this.student.lastName }}</div>
 
@@ -152,6 +152,21 @@ export default {
   margin-bottom: 10px;
   border-radius: 15px;
 }
+
+.card-rendered {
+  font-family: "Source Sans Pro", sans-serif;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(10, 36, 114);
+  width: 20%;
+  height: 40%;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
 :hover.card {
   border-style: solid;
   /* background-color: rgba(10, 36, 114, 0.591); */

@@ -16,7 +16,7 @@
         <h3>{{ course.code }}</h3>
       </div>
     </div>
-    <button class="button" @click="selectedCourse = false">Back</button>
+    <button class="button" @click="$router.push('/')">Back</button>
     <button class="button" @click="$router.push('/courses/form')">
       Add Course
     </button>
@@ -93,7 +93,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   background-color: rgb(10, 36, 114);
-  width: 80%;
+  width: 20%;
   height: 250px;
   margin: 10px;
   border-radius: 15px;

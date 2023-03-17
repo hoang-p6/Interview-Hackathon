@@ -1,8 +1,9 @@
 <template>
   <div class="main">
     <h1>Students In Course</h1>
+    <button class="button" @click="$router.push('/courses')">Back</button>
     <div
-      class="card"
+      class="student-card"
       v-for="student in students"
       :key="student.id"
       @click="$router.push('/courses/grades')"
@@ -67,11 +68,25 @@ export default {
   margin-bottom: 10px;
   border-radius: 15px;
 }
-:hover.card {
-  border-style: solid;
-  /* background-color: rgba(10, 36, 114, 0.591); */
-  color: rgb(3, 83, 164);
+
+.student-card {
+  font-family: "Source Sans Pro", sans-serif;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(10, 36, 114);
+  width: 20%;
+  height: 40%;
+  margin-bottom: 10px;
+  border-radius: 15px;
 }
+/* :hover.card {
+  border-style: solid;
+  background-color: rgba(10, 36, 114, 0.591);
+  color: rgb(3, 83, 164);
+} */
 
 .button {
   background-color: rgb(4, 102, 200);
