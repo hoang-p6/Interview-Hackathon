@@ -6,6 +6,7 @@
       {{ this.course.name }}
       {{ this.course.code }}
     </div> -->
+
       <div
         class="card"
         v-for="course in courses"
@@ -13,12 +14,14 @@
         @click="$router.push(`/courses/${course.id}`)"
       >
         <h2>{{ course.name }}</h2>
+
         <h3>Course Code: {{ course.code }}</h3>
       </div>
       <button class="button" @click="selectedCourse = false">Back</button>
       <button class="button" @click="$router.push('/courses/form')">
         Add Course
       </button>
+
     </div>
   </div>
 </template>
@@ -76,6 +79,15 @@ export default {
   flex-direction: column;
 }
 
+.class-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 250px;
+}
+
 .card {
   font-family: 'Source Sans Pro', sans-serif;
   color: aliceblue;
@@ -85,12 +97,14 @@ export default {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: rgb(10, 36, 114);
-  width: 20%;
-  height: 40%;
-  margin-bottom: 10px;
+  width: 80%;
+  height: 250px;
+  margin: 10px;
   border-radius: 15px;
+  padding: 20px;
+  font-size: 1.2em;
 }
-:hover.card {
+.card:hover {
   border-style: solid;
   /* background-color: rgba(10, 36, 114, 0.591); */
   color: rgb(3, 83, 164);
@@ -107,7 +121,7 @@ export default {
   border-color: 2px #979dac;
   font-size: 1em;
 }
-:hover.button {
+.button:hover {
   background-color: rgb(3, 83, 164);
 }
 </style>
